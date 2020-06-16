@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>EB Home Controller - Kullanıcı Girişi</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/override.css">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <span style="font-size: 22px; color:mediumpurple; font-weight: 600;">EB Home Controller</span>
+                        </div>
+                        <div class="login-form">
+                            <div class="form-group">
+                                <label>Kullanıcı Adı</label>
+                                <input class="au-input au-input--full" type="text" name="username" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Parola</label>
+                                <input class="au-input au-input--full" type="password" name="password" placeholder="">
+                            </div>
+                            <div class="login-checkbox">
+                                <label style="position: relative;">
+                                    <label class="switch switch-3d switch-secondary mr-3 switch-login" style="display:block;">
+                                        <input type="checkbox" class="switch-input" name="remember">
+                                        <span class="switch-label"></span>
+                                        <span class="switch-handle"></span>
+                                    </label>
+                                    <span style="position: absolute; left:50px; top:0;">Beni hatırla</span>
+                                </label>
+                            </div>
+                            <button class="au-btn au-btn--block au-btn--green m-b-20 login-btn">Giris Yap</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/ls_init.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/func.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        var AJAX_LOCK = false;
+
+        $("button.login-btn").on("click", function(){
+            $(this).prop("disabled", true);
+            // $(this).css({
+            //     background : "#b7b7b7"
+            // });
+            $(this).html('<img src="images/loading.gif" style="width:40px;height:40x;">');
+
+            var username = $("input[name='username']").val();
+            var password = $("input[name='password']").val();
+
+            var remember_me = $("input[name='remember']").prop("checked");
+
+            if(remember_me)
+            {
+                localStorage.setItem("remember_me", 1);
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+            }
+            else
+            {
+                localStorage.setItem("remember_me", 0);
+            }
+
+            if(!AJAX_LOCK)
+            {
+                AJAX_LOCK = true;
+
+                $.ajax({
+                    url : API_URL,
+                    type : "get",
+                    dataType : "json",
+                    data : {
+                        "login" : 1,
+                        "did"   : DEVICE_ID,
+                        "username" : username,
+                        "password" : password
+                    },
+                    success : function(data)
+                    {
+                        if(data.code == 1)
+                        {
+                            if(localStorage.getItem("auto_login") == 0) alert("Başarıyla giriş yaptınız.");
+
+                            localStorage.setItem("user_id", data.user_id);
+                            
+                            if(localStorage.getItem("auto_login") == 1) window.location = "index.html";
+                            redirect("index.html");
+                        }
+                        else
+                        {
+                            if(data.code == 0)
+                            {
+                                alert("Kullanıcı adı veya parola yanlış.");
+                            }
+                            else
+                            {
+                                alert("Sunucudan bilinmeyen bir yanıt kodu geldi. (Kod: "+data.code+")");
+                            }
+
+                            AJAX_LOCK = false;
+                
+                            $("button.login-btn").prop("disabled", false);
+                            // $(this).css({
+                            //     background : "#63c76a"
+                            // });
+                            $("button.login-btn").html('Giris Yap');
+                        }
+                        
+                    },
+                    error : function()
+                    {   
+                        AJAX_LOCK = false;
+                
+                        $(this).prop("disabled", false);
+                        // $(this).css({
+                        //     background : "#63c76a"
+                        // });
+                        $(this).html('Giris Yap');
+                        
+                        alert("İstek gönderilirken bir hata oluştu.");
+                    }
+                });
+            }
+            else
+            {
+                alert("Lütfen yeni bir istek göndermeden önce sunucudan gelecek yanıtı bekleyiniz.");
+            }
+        });
+
+        if(localStorage.getItem("remember_me") == 1)
+        {
+            $("input[name='remember']").prop("checked", true);
+            $("input[name='username']").val(localStorage.getItem("username"));
+            $("input[name='password']").val(localStorage.getItem("password"));
+
+            if(localStorage.getItem("auto_login") == 1)
+            {
+                $("button.login-btn").click();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
+<!-- end document-->

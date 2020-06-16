@@ -1,0 +1,75 @@
+/* EB CSS OVERRIDE */
+
+#__bs_notify__{
+    /* Cordova live reload plugin notify suppress */
+    display: none !important;
+}
+
+.switch-login.switch-secondary > .switch-input:checked + .switch-label{
+    background: mediumpurple !important;
+    border: 1px solid #f2f2f2;
+}
+.page-wrapper{
+    overflow: visible !important;
+    background: #e5e5e5;
+}
+
+.page-container{
+    top: 60px;
+}
+
+header.header-mobile{
+    position: fixed;
+    z-index: 20;
+    height: 66px;
+    background-color: #fff;
+}
+
+.header-mobile-inner{
+    padding-top: 6px;
+}
+
+header.header-mobile > nav.navbar-mobile{
+    top:66px;
+}
+
+.notifi-dropdown{
+    left:-8px;
+    top:50px;
+}
+.notifi-dropdown::before{
+    left:2px;
+    top:-30px;
+    width: 22px;
+    height: 22px;
+    border-bottom: 12px solid #e5e5e5;
+    border-top: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+
+.quantity.no-notification{
+    background: #cecece;
+}
+
+.notifi__item > .img-cir > i{
+    top: 50%;
+}
+
+button.hamburger.hamburger--slider{
+    position: absolute; right:6px;
+    padding-left: 0 !important;
+}
+
+.au-card {
+    margin-bottom: 20px;
+}
+
+.au-card-inner > .notifi__item{
+    padding: 0;
+    border: none;
+}
+
+.au-card-inner > .notifi__item:hover{
+    background: transparent;
+}

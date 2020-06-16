@@ -1,0 +1,33 @@
+{
+  "name": "eb.home_controller",
+  "displayName": "EB Home Controller",
+  "version": "1.0.0",
+  "description": "EB Home Controller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Ege Bilecen",
+  "license": "GPL",
+  "dependencies": {
+    "cordova-android": "^8.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-browsersync-gen2": "^1.1.6"
+  },
+  "devDependencies": {
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-browsersync-gen2": {}
+    },
+    "platforms": [
+      "browser",
+      "android"
+    ]
+  }
+}

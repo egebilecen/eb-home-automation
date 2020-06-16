@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>EB Home Controller</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/override.css">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <div class="noti__item js-item-menu">
+                            <i class="zmdi zmdi-notifications"></i>
+                            <span class="quantity no-notification">0</span>
+                            <div class="notifi-dropdown js-dropdown">
+                                <div class="notification-main">
+
+                                </div>
+                                <div class="notifi__footer">
+                                    <a href="notifications.html">Hepsini Gör</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <!-- <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Dashboard 1</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Dashboard 2</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Dashboard 3</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Dashboard 4</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-home"></i>Anasayfa</a>
+                        </li>
+                        <li>
+                            <a href="command_list.html">
+                                <i class="fas fa-terminal"></i>Komutlar</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">
+                                <i class="fas fa-gear"></i>Ayarlar</a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fas fa-sign-out-alt"></i>Çıkış</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container" style="padding-left:0;">
+            <!-- MAIN CONTENT-->
+            <div class="main-content" style="padding-top:25px;">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="au-card recent-report" style="padding-bottom:40px;">
+                                    <div class="au-card-inner">
+                                        <h3 class="title-2" style="padding-bottom: 10px;position: relative;">
+                                            Sıcaklık Grafiği
+
+                                            <a href="temp_sensor_place.html" style="font-size: 16px; position: absolute; right:0; top:2px;color: #333333;">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        </h3> 
+                                        
+                                        <div class="temperature-data-inner">
+                                            <span id="temp-data-loading">Yükleniyor...</span>
+                                            <canvas id="temperature-data-canvas" style="display: none;"></canvas>
+                                            <span id="place-name" style="display:none;text-align: center; font-size: 14px; color: #666;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-9">
+                                <h2 class="title-1 m-b-25">Earnings By Items</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>date</th>
+                                                <th>order ID</th>
+                                                <th>name</th>
+                                                <th class="text-right">price</th>
+                                                <th class="text-right">quantity</th>
+                                                <th class="text-right">total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2018-09-29 05:57</td>
+                                                <td>100398</td>
+                                                <td>iPhone X 64Gb Grey</td>
+                                                <td class="text-right">$999.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$999.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-28 01:22</td>
+                                                <td>100397</td>
+                                                <td>Samsung S8 Black</td>
+                                                <td class="text-right">$756.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$756.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-27 02:12</td>
+                                                <td>100396</td>
+                                                <td>Game Console Controller</td>
+                                                <td class="text-right">$22.00</td>
+                                                <td class="text-right">2</td>
+                                                <td class="text-right">$44.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-26 23:06</td>
+                                                <td>100395</td>
+                                                <td>iPhone X 256Gb Black</td>
+                                                <td class="text-right">$1199.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$1199.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-25 19:03</td>
+                                                <td>100393</td>
+                                                <td>USB 3.0 Cable</td>
+                                                <td class="text-right">$10.00</td>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">$30.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-29 05:57</td>
+                                                <td>100392</td>
+                                                <td>Smartwatch 4.0 LTE Wifi</td>
+                                                <td class="text-right">$199.00</td>
+                                                <td class="text-right">6</td>
+                                                <td class="text-right">$1494.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-24 19:10</td>
+                                                <td>100391</td>
+                                                <td>Camera C430W 4k</td>
+                                                <td class="text-right">$699.00</td>
+                                                <td class="text-right">1</td>
+                                                <td class="text-right">$699.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2018-09-22 00:43</td>
+                                                <td>100393</td>
+                                                <td>USB 3.0 Cable</td>
+                                                <td class="text-right">$10.00</td>
+                                                <td class="text-right">3</td>
+                                                <td class="text-right">$30.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <h2 class="title-1 m-b-25">Top countries</h2>
+                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                                    <div class="au-card-inner">
+                                        <div class="table-responsive">
+                                            <table class="table table-top-countries">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>United States</td>
+                                                        <td class="text-right">$119,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Australia</td>
+                                                        <td class="text-right">$70,261.65</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>United Kingdom</td>
+                                                        <td class="text-right">$46,399.22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Turkey</td>
+                                                        <td class="text-right">$35,364.90</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Germany</td>
+                                                        <td class="text-right">$20,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>France</td>
+                                                        <td class="text-right">$10,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Australia</td>
+                                                        <td class="text-right">$5,366.96</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Italy</td>
+                                                        <td class="text-right">$1639.32</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row">
+                            <div class="col-lg-6">
+                                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                                    <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
+                                        <div class="bg-overlay bg-overlay--blue"></div>
+                                        <h3>
+                                            <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
+                                        <button class="au-btn-plus">
+                                            <i class="zmdi zmdi-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="au-task js-list-load">
+                                        <div class="au-task__title">
+                                            <p>Tasks for John Doe</p>
+                                        </div>
+                                        <div class="au-task-list js-scrollbar3">
+                                            <div class="au-task__item au-task__item--danger">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
+                                                    </h5>
+                                                    <span class="time">10:00 AM</span>
+                                                </div>
+                                            </div>
+                                            <div class="au-task__item au-task__item--warning">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">Create new task for Dashboard</a>
+                                                    </h5>
+                                                    <span class="time">11:00 AM</span>
+                                                </div>
+                                            </div>
+                                            <div class="au-task__item au-task__item--primary">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
+                                                    </h5>
+                                                    <span class="time">02:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="au-task__item au-task__item--success">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">Create new task for Dashboard</a>
+                                                    </h5>
+                                                    <span class="time">03:30 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="au-task__item au-task__item--danger js-load-item">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
+                                                    </h5>
+                                                    <span class="time">10:00 AM</span>
+                                                </div>
+                                            </div>
+                                            <div class="au-task__item au-task__item--warning js-load-item">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <a href="#">Create new task for Dashboard</a>
+                                                    </h5>
+                                                    <span class="time">11:00 AM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="au-task__footer">
+                                            <button class="au-btn au-btn-load js-load-btn">load more</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                                    <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
+                                        <div class="bg-overlay bg-overlay--blue"></div>
+                                        <h3>
+                                            <i class="zmdi zmdi-comment-text"></i>New Messages</h3>
+                                        <button class="au-btn-plus">
+                                            <i class="zmdi zmdi-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="au-inbox-wrap js-inbox-wrap">
+                                        <div class="au-message js-list-load">
+                                            <div class="au-message__noti">
+                                                <p>You Have
+                                                    <span>2</span>
+
+                                                    new messages
+                                                </p>
+                                            </div>
+                                            <div class="au-message-list">
+                                                <div class="au-message__item unread">
+                                                    <div class="au-message__item-inner">
+                                                        <div class="au-message__item-text">
+                                                            <div class="avatar-wrap">
+                                                                <div class="avatar">
+                                                                    <img src="images/icon/avatar-02.jpg" alt="John Smith">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h5 class="name">John Smith</h5>
+                                                                <p>Have sent a photo</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="au-message__item-time">
+                                                            <span>12 Min ago</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="au-message__item unread">
+                                                    <div class="au-message__item-inner">
+                                                        <div class="au-message__item-text">
+                                                            <div class="avatar-wrap online">
+                                                                <div class="avatar">
+                                                                    <img src="images/icon/avatar-03.jpg" alt="Nicholas Martinez">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h5 class="name">Nicholas Martinez</h5>
+                                                                <p>You are now connected on message</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="au-message__item-time">
+                                                            <span>11:00 PM</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="au-message__item">
+                                                    <div class="au-message__item-inner">
+                                                        <div class="au-message__item-text">
+                                                            <div class="avatar-wrap online">
+                                                                <div class="avatar">
+                                                                    <img src="images/icon/avatar-04.jpg" alt="Michelle Sims">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h5 class="name">Michelle Sims</h5>
+                                                                <p>Lorem ipsum dolor sit amet</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="au-message__item-time">
+                                                            <span>Yesterday</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="au-message__item">
+                                                    <div class="au-message__item-inner">
+                                                        <div class="au-message__item-text">
+                                                            <div class="avatar-wrap">
+                                                                <div class="avatar">
+                                                                    <img src="images/icon/avatar-05.jpg" alt="Michelle Sims">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h5 class="name">Michelle Sims</h5>
+                                                                <p>Purus feugiat finibus</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="au-message__item-time">
+                                                            <span>Sunday</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="au-message__item js-load-item">
+                                                    <div class="au-message__item-inner">
+                                                        <div class="au-message__item-text">
+                                                            <div class="avatar-wrap online">
+                                                                <div class="avatar">
+                                                                    <img src="images/icon/avatar-04.jpg" alt="Michelle Sims">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h5 class="name">Michelle Sims</h5>
+                                                                <p>Lorem ipsum dolor sit amet</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="au-message__item-time">
+                                                            <span>Yesterday</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="au-message__item js-load-item">
+                                                    <div class="au-message__item-inner">
+                                                        <div class="au-message__item-text">
+                                                            <div class="avatar-wrap">
+                                                                <div class="avatar">
+                                                                    <img src="images/icon/avatar-05.jpg" alt="Michelle Sims">
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h5 class="name">Michelle Sims</h5>
+                                                                <p>Purus feugiat finibus</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="au-message__item-time">
+                                                            <span>Sunday</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="au-message__footer">
+                                                <button class="au-btn au-btn-load js-load-btn">load more</button>
+                                            </div>
+                                        </div>
+                                        <div class="au-chat">
+                                            <div class="au-chat__title">
+                                                <div class="au-chat-info">
+                                                    <div class="avatar-wrap online">
+                                                        <div class="avatar avatar--small">
+                                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
+                                                        </div>
+                                                    </div>
+                                                    <span class="nick">
+                                                        <a href="#">John Smith</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="au-chat__content">
+                                                <div class="recei-mess-wrap">
+                                                    <span class="mess-time">12 Min ago</span>
+                                                    <div class="recei-mess__inner">
+                                                        <div class="avatar avatar--tiny">
+                                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
+                                                        </div>
+                                                        <div class="recei-mess-list">
+                                                            <div class="recei-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
+                                                            <div class="recei-mess">Donec tempor, sapien ac viverra</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="send-mess-wrap">
+                                                    <span class="mess-time">30 Sec ago</span>
+                                                    <div class="send-mess__inner">
+                                                        <div class="send-mess-list">
+                                                            <div class="send-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="au-chat-textfield">
+                                                <form class="au-form-icon">
+                                                    <input class="au-input au-input--full au-input--h65" type="text" placeholder="Type a message">
+                                                    <button class="au-input-icon">
+                                                        <i class="zmdi zmdi-camera"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/config.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/func.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>function draw_graph(label_list, data_list, min_limit, max_limit)
+        {
+            min_limit = parseInt(min_limit);
+            max_limit = parseInt(max_limit);
+            
+            var ctx = document.getElementById("temperature-data-canvas");
+            if (ctx) 
+            {
+                ctx.height = 250;
+                var myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: label_list,
+                        datasets: [
+                            {
+                                label: 'Sıcaklık',
+                                backgroundColor: "transparent",
+                                borderColor: '#ff4c4c',
+                                pointHoverBackgroundColor: '#ff4c4c',
+                                borderWidth: 2,
+                                data: data_list,
+                                pointBackgroundColor : "#ff4c4c"
+                            }
+                        ]
+                    },
+                    options: {
+                        maintainAspectRatio: true,
+                        legend: {
+                            display: false
+                        },
+                        responsive: true,
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    drawOnChartArea: true,
+                                    color: '#f2f2f2'
+                                },
+                                ticks: {
+                                    fontFamily: "Poppins",
+                                    fontSize: 12
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    stepSize: 40,
+                                    min: min_limit,
+                                    max: max_limit,
+                                    fontFamily: "Poppins",
+                                    fontSize: 12
+                                },
+                                gridLines: {
+                                    display: true,
+                                    color: '#f2f2f2'
+                                }
+                            }]
+                        },
+                        elements: {
+                            point: {
+                                radius: 4,
+                                hitRadius: 10,
+                                hoverRadius: 4,
+                                hoverBorderWidth: 3
+                            },
+                            line : {
+                                tension : 0
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        $.ajax({
+            url  : API_URL,
+            type : "get",
+            dataType : "json",
+            data : {
+                "temp_sensor_data" : 1,
+                "did" : DEVICE_ID,
+                "place" : localStorage.getItem("temp_sensor_place_id"),
+                "limit" : localStorage.getItem("temp_chart_data_limit")
+            },
+            success : function(data)
+            {
+                if(data.code != 1)
+                {
+                    $(".temperature-data-inner").html("<span style='color:orangered;padding-top:15px;display:block;'>Hata - API'den gelen yanıt kodu: "+data.code+"</span>");
+                    return;
+                }
+                
+                if(data.sensor_data.length < 1)
+                {
+                    $(".temperature-data-inner").html("<span style='padding-top:15px;display:block;'>"+data.place_name+" için sensör verisi bulunmamaktadır.</span>");
+                    return;
+                }
+
+                $(".temperature-data-inner > #temp-data-loading").css("display","none");
+                $(".temperature-data-inner > canvas").css("display","block");
+                $(".temperature-data-inner > span#place-name").css("display","block");
+                $(".temperature-data-inner > span#place-name").html(data.place_name);
+                
+                var label_list = [];
+                var data_list  = [];
+
+                for(var i=0; i < data.sensor_data.length; i++)
+                {
+                    var _data = data.sensor_data[i];
+                    
+                    label_list.push(_data.time);
+                    data_list.push(parseFloat(_data.value));
+                }
+
+                draw_graph(label_list, data_list, localStorage.getItem("temp_chart_min_val"), localStorage.getItem("temp_chart_max_val"));
+            },
+            error : function(err)
+            {
+                $(".temperature-data-inner").html("<span style='color:crimson;padding-top:15px;display:block;'>Sensör verileri alınırken bir hata oluştu.</span>");
+            }
+        });
+
+        $.ajax({
+            url  : API_URL,
+            type : "get",
+            dataType : "json",
+            data : {
+                "unreaded_notifications" : 1,
+                "did"     : DEVICE_ID,
+                "user_id" : USER_ID
+            },
+            success : function(data)
+            {
+                if (data.unreaded_notifications.length < 1)
+                {
+                    add_all_readed_notification();
+                    return;
+                }
+                
+                data.unreaded_notifications.reverse();
+
+                for(var i=0; i < data.unreaded_notifications.length; i++)
+                {
+                    var notification = data.unreaded_notifications[i];
+                    var html_data =  '   <div class="notifi__item" notification-id="$notification_id">  '  + 
+                                     '       <div class="bg-c1 img-cir img-40" style="background:$background;">  '  + 
+                                     '           <i class="fa fa-$icon"></i>  '  + 
+                                     '       </div>  '  + 
+                                     '       <div class="content">  '  + 
+                                     '           <p>$text</p>  '  + 
+                                     '           <span class="date">$date</span>  '  + 
+                                     '       </div>  '  + 
+                                     '  </div>  ' ;
+                    html_data = html_data.replace("$notification_id", notification.notification_id)
+                                         .replace("$background", notification.notification_background)
+                                         .replace("$icon", notification.notification_icon)
+                                         .replace("$text", notification.notification_text)
+                                         .replace("$date", parse_mysql_date(notification.notification_date));
+                    $(".notifi-dropdown.js-dropdown > .notification-main").prepend(html_data);
+                }
+
+                $(".noti__item > span.quantity").html(data.unreaded_notifications.length).removeClass("no-notification");
+
+                $(".notifi__item").on("click", function(){
+                    var notification_id = $(this).attr("notification-id");
+
+                    var p = confirm("Bu bildirimi okundu olarak işaretlemek istediğinizden emin misiniz?");
+
+                    if(!p) return;
+
+                    $.ajax({
+                        url  : API_URL,
+                        type : "get",
+                        dataType : "json",
+                        data : {
+                            "notification_readed" : 1,
+                            "did"     : DEVICE_ID,
+                            "user_id" : USER_ID,
+                            "notification_id" : notification_id
+                        },
+                        success : function(data)
+                        {
+                            if(data.code == 1) 
+                            {
+                                // alert("Seçilen bildirim başarıyla okulda olarak işaretlendi.");
+                                $(".notifi__item[notification-id='"+notification_id+"']").remove();
+
+                                var notification_amount = document.querySelectorAll(".notifi__item").length;
+                                $(".noti__item > span.quantity").html(notification_amount);
+
+                                if(notification_amount < 1)
+                                {
+                                    $(".noti__item > span.quantity").addClass("no-notification");
+                                    add_all_readed_notification();
+                                }
+                            }
+                            else if(data.code == 5) alert("Seçilen bildirim veritabanında bulunamadı.");
+                            else if(data.code == 0) alert("Seçilen bildirim okundu olarak işaretlenirken bir hata oluştu.");
+                            else alert("Hata - API'den gelen yanıt kodu: "+data.code);
+                        },
+                        error : function()
+                        {
+                            alert("Seçilen bildirim okundu olarak işaretlenirken bir hata oluştu. (AJAX)");
+                        }
+                    });
+                });
+            },
+            error : function(err)
+            {
+                $(".notifi-dropdown.js-dropdown").html("<span style='color:crimson;display:block;padding:10px;'>Bildirimler alınırken bir hata oluştu.</span>");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
+<!-- end document-->

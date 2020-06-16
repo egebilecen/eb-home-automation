@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>EB Home Controller</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/override.css">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <div class="noti__item js-item-menu">
+                            <i class="zmdi zmdi-notifications"></i>
+                            <span class="quantity no-notification">0</span>
+                            <div class="notifi-dropdown js-dropdown">
+                                <div class="notifi__footer">
+                                    <a href="notifications.html">Hepsini Gör</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="hamburger hamburger--slider" type="button" style="padding-left:95%;">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-home"></i>Anasayfa</a>
+                        </li>
+                        <li>
+                            <a href="command_list.html">
+                                <i class="fas fa-terminal"></i>Komutlar</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">
+                                <i class="fas fa-gear"></i>Ayarlar</a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fas fa-sign-out-alt"></i>Çıkış</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container" style="padding-left:0;">
+            <!-- MAIN CONTENT-->
+            <div class="main-content" style="padding-top:25px;">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="au-card recent-report" style="padding-bottom:40px;padding-top:30px;">
+                                    <div class="au-card-inner main-area">
+                                        <div style="display: block;">
+                                            <h4 style="padding-bottom:10px;">
+                                                Konum Seçimi 
+                                                <span style="font-size: 14px; font-weight: normal;"><br />(Sıcaklık Sensörü)</span>
+                                            </h4>
+                                            <span>Konum Listesi:</span>
+                                            <select name="select" id="select" class="form-control" disabled style="margin-bottom:10px;">
+                                                <option value="0">Yükleniyor...</option>
+                                            </select>
+    
+                                            <button type="button" class="btn btn-success btn-sm save-place">
+                                                <i class="fa fa-check-circle"></i>&nbsp; Seç
+                                            </button>
+                                        </div>
+                                    </div> <!-- END AU-CARD-INNER -->
+                                </div> <!-- END AU-CARD -->
+                            </div> <!-- END COL-LG-12 -->
+                        </div> <!-- END ROW -->
+                    </div> <!-- END CONTAINER FLUID -->
+                </div> <!-- END SECTION -->
+            </div> <!-- END MAIN CONTENT -->
+        </div> <!-- END PAGE CONTAINER -->
+    </div> <!-- END PAGE WRAPPER -->
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/config.js"></script>
+    <script src="js/func.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $("button.save-place").on("click", function(){
+            var place_id   = $(".main-area > div > select").val();
+            var place_name = $(".main-area > div > select").html();
+            
+            if(place_id > 0)
+            {
+                localStorage.setItem("temp_sensor_place_id", place_id);
+                alert("Konum başarıyla seçildi.");
+                redirect("index.html");
+            }
+            else
+            {
+                alert("Lütfen geçerli bir konum seçiniz.");
+                return;
+            }
+        });
+
+        $.ajax({
+            url  : API_URL,
+            type : "get",
+            dataType : "json",
+            data : {
+                "place_list" : 1,
+                "did" : DEVICE_ID
+            },
+            success : function(data)
+            {
+                if(data.code != 1)
+                {
+                    $(".main-area").html("<span style='color:orangered;padding-top:15px;display:block;'>Hata - API'den gelen yanıt kodu: "+data.code+"</span>");
+                    return;
+                }
+
+                for(var i=0; i < data.place_list.length; i++)
+                {
+                    var place = data.place_list[i];
+                    
+                    $(".main-area > div > select").append("<option value='"+place.place_id+"'>"+place.place_name+"</option>");
+                }
+                
+                $(".main-area > div > select")
+                .prop("disabled", false)
+                .val(localStorage.getItem("temp_sensor_place_id"))
+                .children("option:first").remove();
+            },
+            error : function(err)
+            {
+                $(".main-area").html("<span style='color:crimson;padding-top:15px;display:block;'>Yer bilgileri alınırken bir hata oluştu.</span>");
+            }
+        });
+
+        $.ajax({
+            url  : API_URL,
+            type : "get",
+            dataType : "json",
+            data : {
+                "unreaded_notifications" : 1,
+                "did"     : DEVICE_ID,
+                "user_id" : USER_ID
+            },
+            success : function(data)
+            {
+                if (data.unreaded_notifications.length < 1)
+                {
+                    add_all_readed_notification();
+                    return;
+                }
+                
+                data.unreaded_notifications.reverse();
+
+                for(var i=0; i < data.unreaded_notifications.length; i++)
+                {
+                    var notification = data.unreaded_notifications[i];
+                    var html_data =  '   <div class="notifi__item" notification-id="$notification_id">  '  + 
+                                     '       <div class="bg-c1 img-cir img-40" style="background:$background;">  '  + 
+                                     '           <i class="fa fa-$icon"></i>  '  + 
+                                     '       </div>  '  + 
+                                     '       <div class="content">  '  + 
+                                     '           <p>$text</p>  '  + 
+                                     '           <span class="date">$date</span>  '  + 
+                                     '       </div>  '  + 
+                                     '  </div>  ' ;
+                    html_data = html_data.replace("$notification_id", notification.notification_id)
+                                         .replace("$background", notification.notification_background)
+                                         .replace("$icon", notification.notification_icon)
+                                         .replace("$text", notification.notification_text)
+                                         .replace("$date", parse_mysql_date(notification.notification_date));
+                    $(".notifi-dropdown.js-dropdown > .notification-main").prepend(html_data);
+                }
+
+                $(".noti__item > span.quantity").html(data.unreaded_notifications.length).removeClass("no-notification");
+
+                $(".notifi__item").on("click", function(){
+                    var notification_id = $(this).attr("notification-id");
+
+                    var p = confirm("Bu bildirimi okundu olarak işaretlemek istediğinizden emin misiniz?");
+
+                    if(!p) return;
+
+                    $.ajax({
+                        url  : API_URL,
+                        type : "get",
+                        dataType : "json",
+                        data : {
+                            "notification_readed" : 1,
+                            "did"     : DEVICE_ID,
+                            "user_id" : USER_ID,
+                            "notification_id" : notification_id
+                        },
+                        success : function(data)
+                        {
+                            if(data.code == 1) 
+                            {
+                                // alert("Seçilen bildirim başarıyla okulda olarak işaretlendi.");
+                                $(".notifi__item[notification-id='"+notification_id+"']").remove();
+
+                                var notification_amount = document.querySelectorAll(".notifi__item").length;
+                                $(".noti__item > span.quantity").html(notification_amount);
+
+                                if(notification_amount < 1)
+                                {
+                                    $(".noti__item > span.quantity").addClass("no-notification");
+                                    add_all_readed_notification();
+                                }
+                            }
+                            else if(data.code == 5) alert("Seçilen bildirim veritabanında bulunamadı.");
+                            else if(data.code == 0) alert("Seçilen bildirim okundu olarak işaretlenirken bir hata oluştu.");
+                            else alert("Hata - API'den gelen yanıt kodu: "+data.code);
+                        },
+                        error : function()
+                        {
+                            alert("Seçilen bildirim okundu olarak işaretlenirken bir hata oluştu. (AJAX)");
+                        }
+                    });
+                });
+            },
+            error : function(err)
+            {
+                $(".notifi-dropdown.js-dropdown").html("<span style='color:crimson;display:block;padding:10px;'>Bildirimler alınırken bir hata oluştu.</span>");
+            }
+        });
+    </script>
+</body>
+
+</html>
+<!-- end document-->

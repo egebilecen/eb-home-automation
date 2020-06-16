@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>EB Home Controller</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="css/override.css">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <div class="noti__item js-item-menu">
+                            <i class="zmdi zmdi-notifications"></i>
+                            <span class="quantity no-notification">0</span>
+                            <div class="notifi-dropdown js-dropdown">
+                                <div class="notification-main">
+
+                                </div>
+                                <div class="notifi__footer">
+                                    <a href="notifications.html">Hepsini Gör</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a href="index.html">
+                                <i class="fas fa-home"></i>Anasayfa</a>
+                        </li>
+                        <li>
+                            <a href="command_list.html">
+                                <i class="fas fa-terminal"></i>Komutlar</a>
+                        </li>
+                        <li>
+                            <a href="settings.html">
+                                <i class="fas fa-gear"></i>Ayarlar</a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fas fa-sign-out-alt"></i>Çıkış</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container" style="padding-left:0;">
+            <!-- MAIN CONTENT-->
+            <div class="main-content" style="padding-top:25px;">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4 style="padding-bottom:10px;">
+                                    Ayarlar
+                                    <!-- <span style="font-size: 14px; font-weight: normal;"><br />(Sıcaklık Sensörü)</span> -->
+                                </h4>
+                                <div class="au-card" style="padding-bottom:40px;margin-bottom: 20px;">
+                                    <div class="au-card-inner">
+                                        <h4 style="padding-bottom:10px;">
+                                            Uygulama
+                                            <!-- <span style="font-size: 14px; font-weight: normal;"><br />(Sıcaklık Sensörü)</span> -->
+                                        </h4>
+                                        <label style="display:block;position: relative;padding-bottom: 10px;">
+                                            <label class="switch switch-3d switch-secondary mr-3 switch-login" style="display:block;">
+                                                <input type="checkbox" class="switch-input" name="auto_login">
+                                                <span class="switch-label"></span>
+                                                <span class="switch-handle"></span>
+                                            </label>
+                                            <span style="position: absolute; left:50px; top:0;">Otomatik Giriş</span>
+                                        </label>
+                                        <button type="button" class="btn btn-success btn-sm update-app-settings">
+                                            <i class="fa fa-wrench"></i>&nbsp; Güncelle
+                                        </button>
+                                    </div> <!-- END AU-CARD-INNER -->
+                                </div> <!-- END AU-CARD -->
+                                <div class="au-card" style="padding-bottom:40px;margin-bottom: 20px;">
+                                    <div class="au-card-inner">
+                                        <h4 style="padding-bottom:10px;">
+                                            Aygıt
+                                            <!-- <span style="font-size: 14px; font-weight: normal;"><br />(Sıcaklık Sensörü)</span> -->
+                                        </h4>
+                                        <div id="device-main">
+                                            <select name="device_list" id="device-list" class="form-control" disabled style="margin-bottom:15px;">
+                                                <option value="0">Yükleniyor...</option>
+                                            </select>
+                                            <div id="device-hidden-part" style="display:none;">
+                                                <div style="padding-bottom: 10px;margin-bottom:15px;">
+                                                    <label class="control-label mb-1">Sıcaklık Kontrol Süresi: <span style="font-size: 10px; font-weight: normal;display: inline-block;"><br />(saniye)</span></label>
+                                                    <input value="-" id="temp_control_sec" type="text" class="form-control">
+                                                </div>
+                                                <div style="padding-bottom: 10px;margin-bottom:15px;">
+                                                    <label class="control-label mb-1">Komut Çalıştırma Süresi: <span style="font-size: 10px; font-weight: normal;display: inline-block;"><br />(saniye)</span></label>
+                                                    <input value="-" id="cmd_exec_sec" type="text" class="form-control">
+                                                </div>
+                                                <div>
+                                                    <label class="control-label mb-1">Hareket Tespiti:</label>
+                                                    <select id="movement-detection-feature" class="form-control">
+                                                        <option value="0">Kapalı</option>
+                                                        <option value="1">Açık</option>
+                                                    </select>
+                                                </div>
+                                                <div style="padding-bottom: 10px;">
+                                                    <label class="control-label mb-1">Zaman aralığı: <span style="font-size: 10px; font-weight: normal;display: inline-block;"><br />(saniye)</span></label>
+                                                    <input value="-" id="mov_detect_interval" type="text" class="form-control">
+                                                </div>
+                                                <button type="button" class="btn btn-success btn-sm update-device-settings">
+                                                    <i class="fa fa-wrench"></i>&nbsp; Güncelle
+                                                </button>
+                                            </div>
+                                            <span id="device-log" style="display: none;"></span>
+                                        </div>
+                                    </div> <!-- END AU-CARD-INNER -->
+                                </div> <!-- END AU-CARD -->
+                                <div class="au-card" style="padding-bottom:40px;margin-bottom: 20px;">
+                                    <div class="au-card-inner">
+                                        <h4 style="padding-bottom:10px;">
+                                            Sıcaklık Grafigi
+                                            <!-- <span style="font-size: 14px; font-weight: normal;"><br />(Sıcaklık Sensörü)</span> -->
+                                        </h4>
+                                        <div style="padding-bottom: 10px;">
+                                            <label class="control-label mb-1">Min. Sıcaklık Limiti:</label>
+                                            <input id="temp-min" name="temp_min" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                        </div>
+                                        <div style="padding-bottom: 10px;">
+                                            <label class="control-label mb-1">Max. Sıcaklık Limiti:</label>
+                                            <input id="temp-max" name="temp_max" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                        </div>
+                                        <div style="padding-bottom: 10px;">
+                                            <label class="control-label mb-1">Gösterilecek Veri Limiti:</label>
+                                            <input id="temp-data-limit" name="temp_data_limit" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-sm update-temp-char-val">
+                                            <i class="fa fa-wrench"></i>&nbsp; Güncelle
+                                        </button>
+                                    </div> <!-- END AU-CARD-INNER -->
+                                </div> <!-- END AU-CARD -->
+                            </div> <!-- END COL-LG-12 -->
+                        </div> <!-- END ROW -->
+                    </div> <!-- END CONTAINER FLUID -->
+                </div> <!-- END SECTION -->
+            </div> <!-- END MAIN CONTENT -->
+        </div> <!-- END PAGE CONTAINER -->
+    </div> <!-- END PAGE WRAPPER -->
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/config.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/func.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $.ajax({
+            url  : API_URL,
+            type : "get",
+            dataType : "json",
+            data : {
+                "device_list" : 1,
+                "did" : DEVICE_ID
+            },
+            success : function(data)
+            {
+                if(data.code != 1)
+                {
+                    $("#device-main").html("<span style='color:orangered;padding-top:15px;display:block;'>Hata - API'den gelen yanıt kodu: "+data.code+"</span>");
+                    return;
+                }
+
+                for(var i=0; i < data.device_list.length; i++)
+                {
+                    var device = data.device_list[i];
+                    
+                    $("#device-main > select#device-list").append("<option value='"+device.device_id+"'>"+(device.device_desc + " - " + device.place_name)+"</option>");
+                }
+                
+                $("#device-main > select#device-list")
+                .prop("disabled", false)
+                .children("option:first").html("Seçiniz");
+            },
+            error : function(err)
+            {
+                $("#device-main").html("<span style='color:crimson;padding-top:15px;display:block;'>Aygıt listesi alınırken bir hata oluştu.</span>");
+            }
+        });
+        
+        $("select#device-list").on("change", function(e){
+            var selected_device_id = $(this).val();
+
+            if(selected_device_id < 1) 
+            {
+                $("#device-hidden-part").hide();
+                $(this).prop("disabled", false);
+                return;
+            }
+
+            $("#device-hidden-part").hide();
+            $(this).prop("disabled", true);
+
+            $.ajax({
+                url  : API_URL,
+                type : "get",
+                dataType : "json",
+                data : {
+                    "device_settings" : 1,
+                    "did" : DEVICE_ID,
+                    "device_id" : selected_device_id
+                },
+                success : function(data)
+                {
+                    if(data.code != 1)
+                    {
+                        $("#device-log").show().html("<span style='color:orangered;padding-top:15px;display:block;'>Hata - API'den gelen yanıt kodu: "+data.code+"</span>");
+                        $("#device-hidden-part").hide();
+                        $("select#device-list").prop("disabled", false);
+                        return;
+                    }
+                    
+                    $("#device-hidden-part > * input#temp_control_sec").val(data.device_settings.temp_sensor_work_interval / 1000);
+                    $("#device-hidden-part > * input#cmd_exec_sec").val(data.device_settings.cmd_exec_interval / 1000);
+                    $("#device-hidden-part > * select#movement-detection-feature > option:eq("+(data.device_settings.movement_detection == 1 ? "1" : "0")+")").prop("selected", true);
+                    $("#device-hidden-part > * input#mov_detect_interval").val(data.device_settings.mov_detect_interval / 1000);
+                    
+                    $("#device-log").hide();
+                    $("#device-hidden-part").show();
+                    $("select#device-list").prop("disabled", false);
+                },
+                error : function(err)
+                {
+                    $("#device-log").show().html("<span style='color:crimson;padding-top:15px;display:block;'>Seçilen aygıtın ayarları yüklenirken bir hata oluştu.</span>");
+                    $("#device-hidden-part").hide();
+                    $("select#device-list").prop("disabled", false);
+                }
+            });
+        });
+        
+        $("button.update-device-settings").on("click", function(){
+            var selected_device_id = $("#device-list").val();
+            
+            if(selected_device_id < 1)
+            {
+                alert("Lütfen geçerli bir aygıt seçiniz.");
+                return;
+            }
+
+            var temp_sensor_work_interval = parseInt($("#device-hidden-part > * input#temp_control_sec").val());
+            var cmd_exec_interval         = parseInt($("#device-hidden-part > * input#cmd_exec_sec").val());
+            var movement_detection        = parseInt($("#device-hidden-part > * select#movement-detection-feature").val());
+            var mov_detect_interval       = parseInt($("#device-hidden-part > * input#mov_detect_interval").val());
+
+            if(temp_sensor_work_interval != temp_sensor_work_interval || cmd_exec_interval != cmd_exec_interval)
+            {
+                alert("Lütfen bütün alanlara bir sayı girdiğinizden emin olunuz.");
+                return;
+            }
+
+            temp_sensor_work_interval *= 1000;
+            cmd_exec_interval         *= 1000;
+            mov_detect_interval       *= 1000;
+
+            $.ajax({
+                url  : API_URL,
+                type : "get",
+                dataType : "json",
+                data : {
+                    "set_device_settings" : 1,
+                    "did" : DEVICE_ID,
+                    "device_id" : selected_device_id,
+                    "settings" : DEVICE_SETTINGS_STR.replace("$temp_sensor_work_interval", temp_sensor_work_interval)
+                                                    .replace("$cmd_exec_interval", cmd_exec_interval)
+                                                    .replace("$movement_detection", movement_detection)
+                                                    .replace("$mov_detect_interval", mov_detect_interval)
+                },
+                success : function(data)
+                {
+                    if(data.code != 1)
+                    {
+                        if(data.code == 0)      $("#device-log").show().html("<span style='color:orangered;padding-top:15px;display:block;'>Seçilen aygıtın ayarları güncellenirken bir hata oluştu.</span>");
+                        else if(data.code == 4) $("#device-log").show().html("<span style='color:orangered;padding-top:15px;display:block;'>Bu cihaz için zaten bir güncelleme gönderilmiş. Lütfen önce güncellemenin yapılmasını bekleyiniz. Yeni bir güncelleme yapmak için daha sonra tekrar deneyiniz.</span>");
+                        else                    $("#device-log").show().html("<span style='color:orangered;padding-top:15px;display:block;'>Hata - API'den gelen yanıt kodu: "+data.code+"</span>");
+                        
+                        return;
+                    }
+                    
+                    $("#device-log").hide();
+                    alert("Seçilen aygıtın ayarları başarıyla güncelledi.");
+                },
+                error : function(err)
+                {
+                    $("#device-log").show().html("<span style='color:crimson;padding-top:15px;display:block;'>Seçilen aygıtın ayarları veritabanına aktarılırken bir hata oluştu.</span>");
+                }
+            });
+        });
+
+        $.ajax({
+            url  : API_URL,
+            type : "get",
+            dataType : "json",
+            data : {
+                "unreaded_notifications" : 1,
+                "did"     : DEVICE_ID,
+                "user_id" : USER_ID
+            },
+            success : function(data)
+            {
+                if (data.unreaded_notifications.length < 1)
+                {
+                    add_all_readed_notification();
+                    return;
+                }
+                
+                data.unreaded_notifications.reverse();
+
+                for(var i=0; i < data.unreaded_notifications.length; i++)
+                {
+                    var notification = data.unreaded_notifications[i];
+                    var html_data =  '   <div class="notifi__item" notification-id="$notification_id">  '  + 
+                                     '       <div class="bg-c1 img-cir img-40" style="background:$background;">  '  + 
+                                     '           <i class="fa fa-$icon"></i>  '  + 
+                                     '       </div>  '  + 
+                                     '       <div class="content">  '  + 
+                                     '           <p>$text</p>  '  + 
+                                     '           <span class="date">$date</span>  '  + 
+                                     '       </div>  '  + 
+                                     '  </div>  ' ;
+                    html_data = html_data.replace("$notification_id", notification.notification_id)
+                                         .replace("$background", notification.notification_background)
+                                         .replace("$icon", notification.notification_icon)
+                                         .replace("$text", notification.notification_text)
+                                         .replace("$date", parse_mysql_date(notification.notification_date));
+                    $(".notifi-dropdown.js-dropdown > .notification-main").prepend(html_data);
+                }
+
+                $(".noti__item > span.quantity").html(data.unreaded_notifications.length).removeClass("no-notification");
+
+                $(".notifi__item").on("click", function(){
+                    var notification_id = $(this).attr("notification-id");
+
+                    var p = confirm("Bu bildirimi okundu olarak işaretlemek istediğinizden emin misiniz?");
+
+                    if(!p) return;
+
+                    $.ajax({
+                        url  : API_URL,
+                        type : "get",
+                        dataType : "json",
+                        data : {
+                            "notification_readed" : 1,
+                            "did"     : DEVICE_ID,
+                            "user_id" : USER_ID,
+                            "notification_id" : notification_id
+                        },
+                        success : function(data)
+                        {
+                            if(data.code == 1) 
+                            {
+                                // alert("Seçilen bildirim başarıyla okulda olarak işaretlendi.");
+                                $(".notifi__item[notification-id='"+notification_id+"']").remove();
+
+                                var notification_amount = document.querySelectorAll(".notifi__item").length;
+                                $(".noti__item > span.quantity").html(notification_amount);
+
+                                if(notification_amount < 1)
+                                {
+                                    $(".noti__item > span.quantity").addClass("no-notification");
+                                    add_all_readed_notification();
+                                }
+                            }
+                            else if(data.code == 5) alert("Seçilen bildirim veritabanında bulunamadı.");
+                            else if(data.code == 0) alert("Seçilen bildirim okundu olarak işaretlenirken bir hata oluştu.");
+                            else alert("Hata - API'den gelen yanıt kodu: "+data.code);
+                        },
+                        error : function()
+                        {
+                            alert("Seçilen bildirim okundu olarak işaretlenirken bir hata oluştu. (AJAX)");
+                        }
+                    });
+                });
+            },
+            error : function(err)
+            {
+                $(".notifi-dropdown.js-dropdown").html("<span style='color:crimson;display:block;padding:10px;'>Bildirimler alınırken bir hata oluştu.</span>");
+            }
+        });
+
+        $("button.update-temp-char-val").on("click", function(){
+            var min   = parseInt($("input#temp-min").val());
+            var max   = parseInt($("input#temp-max").val());
+            var limit = parseInt($("input#temp-data-limit").val());
+
+            if(min !== min || max !== max)
+            {
+                alert("Lütfen girilen bütün değerlerin bir sayı olduğundan emin olunuz.");
+                return;
+            }
+
+            localStorage.setItem("temp_chart_min_val", min);
+            localStorage.setItem("temp_chart_max_val", max);
+            localStorage.setItem("temp_chart_data_limit", limit);
+            alert("Sıcaklık grafiği ayarları başarıyla güncellendi.");
+        });
+
+        $("button.update-app-settings").on("click", function(){
+            localStorage.setItem("auto_login", ($("input[name='auto_login']").prop("checked") ? 1 : 0));
+            alert("Uygulama ayarları başarıyla güncellendi.");
+        });
+        $("input#temp-min").val(localStorage.getItem("temp_chart_min_val"));
+        $("input#temp-max").val(localStorage.getItem("temp_chart_max_val"));
+        $("input#temp-data-limit").val(localStorage.getItem("temp_chart_data_limit"));
+        
+        $("input[name='auto_login']").prop("checked", !!parseInt(localStorage.getItem("auto_login")));
+    </script>
+</body>
+
+</html>
+<!-- end document-->
